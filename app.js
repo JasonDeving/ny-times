@@ -1,14 +1,18 @@
 $('button').on('click', function() {
-        var queryURL = "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=0a25350fb21f4a6f988e4140ea4f32b7";
-
+        var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+        url += '?' + $.param({
+          'api-key': "84d21462dd9242caaa0347095749defd",
+          'q': "Elon Musk",
+          'fq': "5",
+          'begin_date': "2000",
+          'end_date': "2016"
+        });
         $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
-            .done(function(response) {
-                // step 1: Run this file, click a button, and see what the data looks like in the browser's console. Open up the Object, then open up the data key, then open up 0. Study the keys and how the JSON is structured.
-                console.log(queryURL)
-                console.log(response)
-               
-            });
+          url: url,
+          method: 'GET',
+        }).done(function(result) {
+          console.log(result);
+        }).fail(function(err) {
+          throw err;
+        });
     });
