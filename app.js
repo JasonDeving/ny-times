@@ -1,5 +1,5 @@
 $('button').on('click', function() {
-        var queryURL = "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key= 0a25350fb21f4a6f988e4140ea4f32b7";
+        var queryURL = "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=0a25350fb21f4a6f988e4140ea4f32b7";
 
         $.ajax({
                 url: queryURL,
